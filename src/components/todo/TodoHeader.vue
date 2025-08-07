@@ -14,11 +14,13 @@
 
 .title {
   padding-left: 10px;
+  padding-top: 1rem;
   color: white;
   font-size: 2rem;
 }
 
 .header {
+  border-radius: 4px;
   background-color: black
 }
 
