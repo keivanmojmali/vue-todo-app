@@ -24,6 +24,11 @@ function addTodo() {
 <template>
   <button @click="addTodo" class="submit-button">Add</button>
   <input type="text" v-model="newTodo" placeholder="Enter Todo Here" class="todo-input" />
+  <ul>
+    <li v-for="todo in todos" :key="todo.id">
+      {{ todo.text }}
+    </li>
+  </ul>
 </template>
 
 <style>
