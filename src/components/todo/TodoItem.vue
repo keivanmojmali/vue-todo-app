@@ -1,8 +1,29 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+
+interface TodoItem {
+  id: number
+  text: string
+  completed: boolean
+}
+
+const todos = ref<TodoItem[]>([])
+const newTodo = ref('')
+
+function addTodo() {
+  if (newTodo.value.trim()) {
+    todos.value.push({
+      id: Date.now(),
+      text: newTodo.value,
+      completed: false,
+    })
+  }
+}
+</script>
 
 <template>
-  <button class="submit-button">Add</button>
-  <input type="text" placeholder="Enter Todo Here" class="todo-input" />
+  <button @click="addTodo" class="submit-button">Add</button>
+  <input type="text" v-model="newTodo" placeholder="Enter Todo Here" class="todo-input" />
 </template>
 
 <style>
@@ -16,7 +37,6 @@
 }
 .todo-input {
   border: 1px solid gray;
-  border-radius: 4px;
   padding: 0.5rem;
 }
 </style>
